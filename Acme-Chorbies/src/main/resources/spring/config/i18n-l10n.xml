@@ -36,6 +36,8 @@
 		<value>/views/manager/messages</value>
 		<value>/views/creditCard/messages</value>
 		<value>/views/broadcast/messages</value>
+		<value>/views/examclass/messages</value>
+		
 	</util:list>
 
 </beans>

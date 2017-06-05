@@ -96,6 +96,13 @@
 	</jstl:if>
 	</security:authorize>
 	
+	<display:column>
+	  	<a href="examclass/list.do?eventId=${event.id}">
+	 		<spring:message code="event.examclass" var="examclassHeader" />
+		  	<jstl:out value="${examclassHeader}" />
+		</a>
+	</display:column>
+	
 </display:table>
 </jstl:otherwise>
 </jstl:choose>
