@@ -225,11 +225,8 @@ public class ChorbiService {
 	}
 	
 	public Chorbi reconstructEdit(ChorbiForm chorbi, BindingResult binding) {
-		Chorbi res = findByUserAccountId(LoginService.getPrincipal().getId());
-		if(res==null){
-			UserAccount ua= userAccountService.findOne(LoginService.getPrincipal().getId());
-			res = this.create(ua);
-		}
+		UserAccount ua= userAccountService.findOne(LoginService.getPrincipal().getId());
+		Chorbi res = this.create(ua);
 		Coordinates coor = new Coordinates(chorbi.getCoordinates().getCountry(), 
 				chorbi.getCoordinates().getCity(), chorbi.getCoordinates().getState(), 
 				chorbi.getCoordinates().getProvince());
@@ -263,5 +260,40 @@ public class ChorbiService {
 		validator.validate(res, binding);
 		
 		return res;
+	}
+
+	public Chorbi realReconstruct(ChorbiForm chorbi) {
+		Chorbi  res = this.findByUserAccountId(LoginService.getPrincipal().getId());
+		Coordinates coor = new Coordinates(chorbi.getCoordinates().getCountry(), 
+				chorbi.getCoordinates().getCity(), chorbi.getCoordinates().getState(), 
+				chorbi.getCoordinates().getProvince());
+		
+		res.setCreditCard(chorbi.getCreditCard());
+		res.setName(chorbi.getName());
+		res.setSurname(chorbi.getSurname());
+		res.setEmail(chorbi.getEmail());
+		res.setPhone(chorbi.getPhone());
+		res.setPicture(chorbi.getPicture());
+		res.setBirthDate(chorbi.getBirthDate());
+		switch(chorbi.getKindRelationship()){
+		case 0: res.setKindRelationship(KindRelationship.ACTIVITIES);
+		break;
+		case 1: res.setKindRelationship(KindRelationship.FRIENDSHIP);
+		break;
+		case 2: res.setKindRelationship(KindRelationship.LOVE);
+		break;
+		}
+
+		switch(chorbi.getGenre()){
+		case 0: res.setGenre(Genre.WOMEN);
+		break;
+		case 1: res.setGenre(Genre.MAN);
+		break;
+		case 2: res.setGenre(Genre.OTHER);
+		break;
+		}
+		res.setCoordinates(coor);
+		
+		return this.save(res);
 	}
 }

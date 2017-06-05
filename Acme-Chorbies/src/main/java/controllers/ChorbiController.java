@@ -99,24 +99,13 @@ public class ChorbiController extends AbstractController {
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(ChorbiForm chor, BindingResult binding) {
 		ModelAndView result;
-		Chorbi chorbi;
-		chorbi= chorbiService.reconstructEdit(chor, binding);
+		Chorbi chorbi= chorbiService.reconstructEdit(chor, binding);
 
 		if (!binding.hasErrors()) {
 			try{
-				Chorbi edit= new Chorbi();
-				
-				edit.setName(chorbi.getName());
-				edit.setSurname(chorbi.getSurname());
-				edit.setEmail(chorbi.getEmail());
-				edit.setPhone(chorbi.getPhone());
-				edit.setPicture(chorbi.getPicture());
-				edit.setKindRelationship(chorbi.getKindRelationship());
-				edit.setBirthDate(chorbi.getBirthDate());
-				edit.setGenre(chorbi.getGenre());
-				
+				this.chorbiService.realReconstruct(chor);
 				result = new ModelAndView("chorbi/display");
-				result.addObject("chorbi", edit);
+				result.addObject("chorbi", chorbi);
 			}catch(Throwable oops){
 				result = new ModelAndView("chorbi/edit");
 				result.addObject("chorbi", chorbi);
