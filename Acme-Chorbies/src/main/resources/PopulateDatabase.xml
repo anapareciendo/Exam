@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ * PopulateDatabase.xml
+ *
+ * Copyright (C) 2017 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+	
+	<!-- User accounts -->
+
+	<bean id="userAccount1" class="security.UserAccount">
+		<property name="username" value="admin1" />
+		<property name="password" value="e00cf25ad42683b3df678c61f42c6bda" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount2" class="security.UserAccount">
+		<property name="username" value="chorbi1" />
+		<property name="password" value="3daa859a294cdefb20a84840240a76f5" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="CHORBI" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount3" class="security.UserAccount">
+		<property name="username" value="chorbi2" />
+		<property name="password" value="0c8746de81268518ff83490301db8652" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="CHORBI" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccount4" class="security.UserAccount">
+		<property name="username" value="chorbi3" />
+		<property name="password" value="a2da05a88eead7e64593826cafc6a7a7" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="BANNED" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccount5" class="security.UserAccount">
+		<property name="username" value="manager1" />
+		<property name="password" value="c240642ddef994358c96da82c0361a58" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="MANAGER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	
+	<!-- Coordinates -->
+	
+	<bean id="coordinates1" class="domain.Coordinates">
+		<property name="country" value="España" />
+		<property name="city" value="Sevilla" />
+		<property name="state" value="--" />
+		<property name="province" value="Sevilla" />
+	</bean>
+	
+	<bean id="coordinates2" class="domain.Coordinates">
+		<property name="country" value="España" />
+		<property name="city" value="Granada" />
+		<property name="state" value="--" />
+		<property name="province" value="Granada" />
+	</bean>
+	
+	<!-- Administrator -->
+	<bean id="admin1" class="domain.Administrator">
+		<property name="name" value="Jefe" />
+		<property name="surname" value="Maximo" />
+		<property name="email" value="jefemaximo@gmail.com" />
+		<property name="userAccount" ref="userAccount1" />
+		<property name="phone" value="+34122332687" />
+		<property name="examClasses">
+			<list></list>
+		</property>
+	</bean>	
+	
+	<!-- Chorbi -->
+	<bean id="chorbi1" class="domain.Chorbi">
+		<property name="name" value="Pedro" />
+		<property name="surname" value="Gutierrez" />
+		<property name="email" value="guti@gmail.com" />
+		<property name="userAccount" ref="userAccount2" />
+		<property name="phone" value="+34872532287" />	
+		<property name="picture" value="https://static.comicvine.com/uploads/original/11112/111120069/3911767-4644260797-Frank.png" />
+		<property name="kindRelationship" value="LOVE" />
+		<property name="birthDate" value="1991/12/5"/>
+		<property name="age" value="25"/>
+		<property name="genre" value="MAN"/>
+		<property name="banned" value="false"/>
+		<property name="coordinates" ref="coordinates1"/>
+		<property name="searchTemplate" ref="searchTemplate1"/>
+		<property name="sendChirps">
+			<list></list>
+		</property>
+		<property name="receivedChirps">
+			<list></list>
+		</property>
+		<property name="makeLikes">
+			<list></list>
+		</property>
+		<property name="receivedLikes">
+			<list></list>
+		</property>
+		<property name="events">
+			<list></list>
+		</property>
+		<property name="monthlyFee">
+			<list></list>
+		</property>
+	</bean>	
+	
+		
+	<bean id="chorbi2" class="domain.Chorbi">
+		<property name="name" value="Martina" />
+		<property name="surname" value="Ramos" />
+		<property name="email" value="perez@gmail.com" />
+		<property name="userAccount" ref="userAccount3" />
+		<property name="phone" value="+34872532254" />	
+		<property name="picture" value="https://pbs.twimg.com/profile_images/719834468131975169/wz_1kbwp.jpg" />
+		<property name="kindRelationship" value="ACTIVITIES" />
+		<property name="birthDate" value="1997/10/09"/>
+		<property name="age" value="18"/>
+		<property name="genre" value="OTHER"/>
+		<property name="banned" value="false"/>
+		<property name="coordinates" ref="coordinates2"/>
+		<property name="creditCard" ref="creditCard2" />
+		<property name="sendChirps">
+			<list></list>
+		</property>
+		<property name="receivedChirps">
+			<list></list>
+		</property>
+		<property name="makeLikes">
+			<list></list>
+		</property>
+		<property name="receivedLikes">
+			<list></list>
+		</property>
+		<property name="events">
+			<list></list>
+		</property>
+		<property name="monthlyFee">
+			<list></list>
+		</property>
+	</bean>	
+	
+	<bean id="chorbi3" class="domain.Chorbi">
+		<property name="name" value="Alicia" />
+		<property name="surname" value="Gonzalez" />
+		<property name="email" value="dagona@gmail.com" />
+		<property name="userAccount" ref="userAccount4" />
+		<property name="phone" value="+34872532251" />	
+		<property name="picture" value="https://myanimelist.cdn-dena.com/images/characters/7/235823.jpg" />
+		<property name="kindRelationship" value="LOVE" />
+		<property name="birthDate" value="1989/11/07"/>
+		<property name="age" value="26"/>
+		<property name="genre" value="WOMEN"/>
+		<property name="banned" value="true"/>
+		<property name="coordinates" ref="coordinates1"/>
+		<property name="sendChirps">
+			<list></list>
+		</property>
+		<property name="receivedChirps">
+			<list></list>
+		</property>
+		<property name="makeLikes">
+			<list></list>
+		</property>
+		<property name="receivedLikes">
+			<list></list>
+		</property>
+		<property name="events">
+			<list></list>
+		</property>
+		<property name="monthlyFee">
+			<list></list>
+		</property>
+	</bean>	
+	
+	<!-- Manager -->
+	
+		<bean id="manager1" class="domain.Manager">
+		<property name="name" value="Iván" />
+		<property name="surname" value="Díaz" />
+		<property name="email" value="pepejuan@gmail.com" />
+		<property name="userAccount" ref="userAccount5" />
+		<property name="phone" value="+34872535482" />	
+		<property name="company" value="Tinder" />
+		<property name="VATNumber" value="CWSV-120899-J5S" />
+		<property name="Amount" value="1.2" />
+		<property name="creditCard" ref="creditCard4" />
+		<property name="events">
+			<list></list>
+		</property>
+			<property name="sendChirps">
+			<list></list>
+		</property>
+	</bean>
+	
+	<!-- Banner -->
+	
+	<bean id="banner1" class="domain.Banner">
+		<property name="logo" value="No todos son sábanas, Acme Bed'n Breakfast" />
+		<property name="display" value = "true" />
+	</bean>
+	
+	<bean id="banner2" class="domain.Banner">
+		<property name="logo" value="Acme Car'n Go!, porque cambiar una rueda entre dos es mas fácil" />
+		<property name="display" value = "true" />
+	</bean>
+	
+	<bean id="banner3" class="domain.Banner">
+		<property name="logo" value="Ven a comer con nosotros y con tu espíritu, restaurante Acme Pad Thai" />
+		<property name="display" value = "false" />
+	</bean>
+	
+	<bean id="banner4" class="domain.Banner">
+		<property name="logo" value="Acaba con el aburrimiento, conoce a gente interesante en Acme Chorbies" />
+		<property name="display" value = "true" />
+	</bean>
+	
+	<!-- Likes -->
+	
+	<bean id="like1" class="domain.Likes">
+		<property name="moment" value="2017/03/1" />
+		<property name="comment" value="Hola guapo" />
+		<property name="stars" value ="3" />
+		<property name="liked" ref="chorbi1" />
+		<property name="liker" ref="chorbi3" />
+	</bean>
+	
+	<bean id="like2" class="domain.Likes">
+		<property name="moment" value="2017/04/2" />
+		<property name="comment" value="¿Te gusta patinar?" />
+		<property name="stars" value ="1" />
+		<property name="liked" ref="chorbi2" />
+		<property name="liker" ref="chorbi1" />
+	</bean>
+	
+	<bean id="like3" class="domain.Likes">
+		<property name="moment" value="2017/02/1" />
+		<property name="comment" value="¿Te apatece ir al cine?" />
+		<property name="stars" value ="2" />
+		<property name="liked" ref="chorbi1" />
+		<property name="liker" ref="chorbi2" />
+	</bean>
+	
+	
+	<!-- Chirp -->
+	
+	<bean id="chirp1" class="domain.Chirp">
+		<property name="moment" value="2017/02/01 12:30" />
+		<property name="subject" value="Proposición" />
+		<property name="text" value="Me gustaría conocerte" />
+		<property name="sender" ref="chorbi1" />
+		<property name="recipient" ref="chorbi3" />
+		<property name="attachments">
+			<list></list>
+		</property>
+	</bean>
+	
+	<bean id="chirp2" class="domain.Chirp">
+		<property name="moment" value="2017/03/06 13:30" />
+		<property name="subject" value="Duda" />
+		<property name="text" value="¿Cual es el mejor sitio para patinar?" />
+		<property name="sender" ref="chorbi3" />
+		<property name="recipient" ref="chorbi2" />
+		<property name="attachments">
+			<list></list>
+		</property>
+	</bean>
+	
+	<bean id="chirp3" class="domain.Chirp">
+		<property name="moment" value="2017/01/01 01:12" />
+		<property name="subject" value="Felicidades" />
+		<property name="text" value="Feliz año" />
+		<property name="sender" ref="chorbi1" />
+		<property name="recipient" ref="chorbi1" />
+		<property name="attachments">
+			<list></list>
+		</property>
+	</bean>
+	
+	<bean id="chirp4" class="domain.Chirp">
+		<property name="moment" value="2017/01/20 01:12" />
+		<property name="subject" value="Cambios" />
+		<property name="text" value="Existe un cambio en el evento Conoceme. " />
+		<property name="sender" ref="manager1" />
+		<property name="recipient" ref="chorbi2" />
+		<property name="attachments">
+			<list></list>
+		</property>
+	</bean>
+	
+		<!-- Search template -->
+	<bean id="searchTemplate1" class="domain.SearchTemplate">
+		<property name="kindRelationship" value="LOVE" />
+		<property name="aproximateAge" value="24" />
+		<property name="keyword" value="perez" />
+		<property name="genre" value="MAN" />
+		<property name="coordinates" ref="coordinates2" />
+		<property name="moment" value="12/12/2016 12:12"/>
+		<property name="results">
+			<list></list>
+		</property>
+	</bean>
+	
+	
+	<!-- Credit Card -->
+	<bean id="creditCard2" class="domain.CreditCard">
+		<property name="holder" value="Juan Diaz" />
+		<property name="brand" value="MASTERCARD" />
+		<property name="number" value="6011238943402529" />
+		<property name="expirationMonth" value="12" />
+		<property name="expirationYear" value="18" />
+		<property name="cvv" value="408" />
+		<property name="superUser" ref="chorbi2"/>
+	</bean>
+	
+	<bean id="creditCard4" class="domain.CreditCard">
+		<property name="holder" value="Iván Díaz" />
+		<property name="brand" value="VISA" />
+		<property name="number" value="4485949886281843" />
+		<property name="expirationMonth" value="11" />
+		<property name="expirationYear" value="18" />
+		<property name="cvv" value="200" />
+		<property name="superUser" ref="manager1"/>
+	</bean>
+	
+	<!-- Config -->
+	<bean id="config" class="domain.Config">
+		<property name="cache" value="12"/>
+		<property name="fee" value="1.00"/>
+		<property name="registrationFee" value="2.5"/>
+	</bean>
+	
+	<!-- Event -->
+	<bean id="event1" class="domain.Event">
+		<property name="title" value="Conoceme"/>
+		<property name="day" value="10"/>
+		<property name="month" value="12"/>
+		<property name="year" value="2017"/>
+		<property name="hour" value="12"/>
+		<property name="minutes" value="12"/>
+		<property name="date" value="2017/12/12 12:12"/>
+		<property name="description" value="Conoce a tu alma gemela"/>
+		<property name="picture" value="https://wallpaperscraft.com/image/one_piece_punk_metal_company_party_29700_1024x1024.jpg"/>
+		<property name="seatsOffered" value="12"/>
+		<property name="manager" ref="manager1"/>
+		<property name="chorbies">
+			<list>
+				<ref bean="chorbi1"/>
+			</list>
+		</property>
+		<property name="examClasses">
+			<list></list>
+		</property>
+	</bean>
+	
+	<bean id="event2" class="domain.Event">
+		<property name="title" value="Bailale a la vida"/>
+		<property name="day" value="10"/>
+		<property name="month" value="08"/>
+		<property name="year" value="2017"/>
+		<property name="hour" value="15"/>
+		<property name="minutes" value="21"/>
+		<property name="date" value="2017/08/10 12:12"/>
+		<property name="description" value="Aprende a bailar riendote"/>
+		<property name="picture" value="https://wallpaperscraft.com/image/one_piece_punk_metal_company_party_29700_1024x1024.jpg"/>
+		<property name="seatsOffered" value="5"/>
+		<property name="manager" ref="manager1"/>
+		<property name="chorbies">
+			<list></list>
+		</property>
+		<property name="examClasses">
+			<list></list>
+		</property>
+	</bean>
+	
+	<bean id="event3" class="domain.Event">
+		<property name="title" value="Diviertete"/>
+		<property name="day" value="01"/>
+		<property name="month" value="01"/>
+		<property name="year" value="2001"/>
+		<property name="hour" value="12"/>
+		<property name="minutes" value="12"/>
+		<property name="date" value="2001/01/01 12:12"/>
+		<property name="description" value="Atrévete a actividades que jamás has hecho"/>
+		<property name="picture" value="https://wallpaperscraft.com/image/one_piece_punk_metal_company_party_29700_1024x1024.jpg"/>
+		<property name="seatsOffered" value="6"/>
+		<property name="manager" ref="manager1"/>
+		<property name="chorbies">
+			<list></list>
+		</property>
+		<property name="examClasses">
+			<list></list>
+		</property>
+	</bean>
+	
+	<bean id="event4" class="domain.Event">
+		<property name="title" value="Menos de un mes"/>
+		<property name="day" value="04"/>
+		<property name="month" value="10"/>
+		<property name="year" value="2017"/>
+		<property name="hour" value="12"/>
+		<property name="minutes" value="12"/>
+		<property name="date" value="2017/10/04 12:12"/>
+		<property name="description" value="Atrévete a actividades que jamás has hecho"/>
+		<property name="picture" value="https://wallpaperscraft.com/image/one_piece_punk_metal_company_party_29700_1024x1024.jpg"/>
+		<property name="seatsOffered" value="4"/>
+		<property name="manager" ref="manager1"/>
+		<property name="chorbies">
+			<list></list>
+		</property>
+		<property name="examClasses">
+			<list></list>
+		</property>
+	</bean>
+	
+	<bean id="event5" class="domain.Event">
+		<property name="title" value="Mismo dia"/>
+		<property name="day" value="21"/>
+		<property name="month" value="04"/>
+		<property name="year" value="2017"/>
+		<property name="hour" value="12"/>
+		<property name="minutes" value="59"/>
+		<property name="date" value="2017/04/21 12:12"/>
+		<property name="description" value="Atrévete a actividades que jamás has hecho"/>
+		<property name="picture" value="https://wallpaperscraft.com/image/one_piece_punk_metal_company_party_29700_1024x1024.jpg"/>
+		<property name="seatsOffered" value="7"/>
+		<property name="manager" ref="manager1"/>
+		<property name="chorbies">
+			<list></list>
+		</property>
+		<property name="examClasses">
+			<list></list>
+		</property>
+	</bean>
+	
+	<bean id="event6" class="domain.Event">
+		<property name="title" value="Mes y un dia"/>
+		<property name="day" value="22"/>
+		<property name="month" value="01"/>
+		<property name="year" value="2018"/>
+		<property name="hour" value="21"/>
+		<property name="minutes" value="00"/>
+		<property name="date" value="2018/01/22 12:12"/>
+		<property name="description" value="Atrévete a actividades que jamás has hecho"/>
+		<property name="picture" value="https://wallpaperscraft.com/image/one_piece_punk_metal_company_party_29700_1024x1024.jpg"/>
+		<property name="seatsOffered" value="21"/>
+		<property name="manager" ref="manager1"/>
+		<property name="chorbies">
+			<list></list>
+		</property>
+		<property name="examClasses">
+			<list></list>
+		</property>
+	</bean>
+	
+		<bean id="event7" class="domain.Event">
+		<property name="title" value="Mini citas"/>
+		<property name="day" value="29"/>
+		<property name="month" value="05"/>
+		<property name="year" value="2017"/>
+		<property name="hour" value="21"/>
+		<property name="minutes" value="00"/>
+		<property name="date" value="2017/05/29 12:12"/>
+		<property name="description" value="Lo bueno si breve, dos veces bueno"/>
+		<property name="picture" value="https://wallpaperscraft.com/image/one_piece_punk_metal_company_party_29700_1024x1024.jpg"/>
+		<property name="seatsOffered" value="21"/>
+		<property name="manager" ref="manager1"/>
+		<property name="chorbies">
+			<list></list>
+		</property>
+		<property name="examClasses">
+			<list></list>
+		</property>
+	</bean>
+	
+	<bean id="event8" class="domain.Event">
+		<property name="title" value="Evento 8"/>
+		<property name="day" value="30"/>
+		<property name="month" value="04"/>
+		<property name="year" value="2017"/>
+		<property name="hour" value="21"/>
+		<property name="minutes" value="00"/>
+		<property name="date" value="2017/04/30 12:12"/>
+		<property name="description" value=""/>
+		<property name="picture" value="https://wallpaperscraft.com/image/one_piece_punk_metal_company_party_29700_1024x1024.jpg"/>
+		<property name="seatsOffered" value="21"/>
+		<property name="manager" ref="manager1"/>
+		<property name="chorbies">
+			<list></list>
+		</property>
+		<property name="examClasses">
+			<list></list>
+		</property>
+	</bean>
+	
+	<bean id="event9" class="domain.Event">
+		<property name="title" value="Sobre rueda"/>
+		<property name="day" value="21"/>
+		<property name="month" value="06"/>
+		<property name="year" value="2017"/>
+		<property name="hour" value="21"/>
+		<property name="minutes" value="00"/>
+		<property name="date" value="2017/06/21 12:12"/>
+		<property name="description" value="Apuntate a la carrera popular de tu ciudad en patines"/>
+		<property name="picture" value="https://wallpaperscraft.com/image/one_piece_punk_metal_company_party_29700_1024x1024.jpg"/>
+		<property name="seatsOffered" value="21"/>
+		<property name="manager" ref="manager1"/>
+		<property name="chorbies">
+			<list></list>
+		</property>
+		<property name="examClasses">
+			<list></list>
+		</property>
+	</bean>
+	
+	<bean id="event10" class="domain.Event">
+		<property name="title" value="Fiesta de la espuma"/>
+		<property name="day" value="22"/>
+		<property name="month" value="01"/>
+		<property name="year" value="2005"/>
+		<property name="hour" value="21"/>
+		<property name="minutes" value="00"/>
+		<property name="date" value="2005/01/22 12:12"/>
+		<property name="description" value=""/>
+		<property name="picture" value="https://wallpaperscraft.com/image/one_piece_punk_metal_company_party_29700_1024x1024.jpg"/>
+		<property name="seatsOffered" value="21"/>
+		<property name="manager" ref="manager1"/>
+		<property name="chorbies">
+			<list></list>
+		</property>
+		<property name="examClasses">
+			<list></list>
+		</property>
+	</bean>
+	
+	<bean id="event11" class="domain.Event">
+		<property name="title" value="Evento 11"/>
+		<property name="day" value="05"/>
+		<property name="month" value="09"/>
+		<property name="year" value="2009"/>
+		<property name="hour" value="21"/>
+		<property name="minutes" value="00"/>
+		<property name="date" value="2009/09/05 12:12"/>
+		<property name="description" value="Ven a disfrutar con nosotros"/>
+		<property name="picture" value="https://wallpaperscraft.com/image/one_piece_punk_metal_company_party_29700_1024x1024.jpg"/>
+		<property name="seatsOffered" value="21"/>
+		<property name="manager" ref="manager1"/>
+		<property name="chorbies">
+			<list></list>
+		</property>
+		<property name="examClasses">
+			<list></list>
+		</property>
+	</bean>
+	
+	
+	<bean id="event12" class="domain.Event">
+		<property name="title" value="Evento 12"/>
+		<property name="day" value="05"/>
+		<property name="month" value="10"/>
+		<property name="year" value="2015"/>
+		<property name="hour" value="21"/>
+		<property name="minutes" value="00"/>
+		<property name="date" value="2015/10/05 12:12"/>
+		<property name="description" value="No te lo pienses"/>
+		<property name="picture" value="https://wallpaperscraft.com/image/one_piece_punk_metal_company_party_29700_1024x1024.jpg"/>
+		<property name="seatsOffered" value="21"/>
+		<property name="manager" ref="manager1"/>
+		<property name="chorbies">
+			<list></list>
+		</property>
+		<property name="examClasses">
+			<list></list>
+		</property>
+	</bean>
+	
+		<bean id="event13" class="domain.Event">
+		<property name="title" value="Evento 13"/>
+		<property name="day" value="07"/>
+		<property name="month" value="12"/>
+		<property name="year" value="2014"/>
+		<property name="hour" value="21"/>
+		<property name="minutes" value="00"/>
+		<property name="date" value="2014/12/07 12:12"/>
+		<property name="description" value=""/>
+		<property name="picture" value="https://wallpaperscraft.com/image/one_piece_punk_metal_company_party_29700_1024x1024.jpg"/>
+		<property name="seatsOffered" value="21"/>
+		<property name="manager" ref="manager1"/>
+		<property name="chorbies">
+			<list></list>
+		</property>
+		<property name="examClasses">
+			<list></list>
+		</property>
+	</bean>
+	
+	<bean id="event14" class="domain.Event">
+		<property name="title" value="Evento 14"/>
+		<property name="day" value="13"/>
+		<property name="month" value="12"/>
+		<property name="year" value="2017"/>
+		<property name="hour" value="21"/>
+		<property name="minutes" value="00"/>
+		<property name="date" value="2017/12/13 12:12"/>
+		<property name="description" value=""/>
+		<property name="picture" value="https://wallpaperscraft.com/image/one_piece_punk_metal_company_party_29700_1024x1024.jpg"/>
+		<property name="seatsOffered" value="21"/>
+		<property name="manager" ref="manager1"/>
+		<property name="chorbies">
+			<list>
+				<ref bean="chorbi1"/>
+			</list>
+		</property>
+		<property name="examClasses">
+			<list></list>
+		</property>
+	</bean>
+	
+	<!-- Monthly Fee -->
+	<bean id="mf1" class="domain.MonthlyFee">
+		<property name="moment" value="05/05/2016 21:00"/>
+		<property name="amount" value="2.5"/>
+		<property name="chorbi" ref="chorbi1"/>
+	</bean>
+	<bean id="mf2" class="domain.MonthlyFee">
+		<property name="moment" value="05/05/2017 21:00"/>
+		<property name="amount" value="2.5"/>
+		<property name="chorbi" ref="chorbi2"/>
+	</bean>
+	<bean id="mf3" class="domain.MonthlyFee">
+		<property name="moment" value="05/05/2016 21:00"/>
+		<property name="amount" value="2.5"/>
+		<property name="chorbi" ref="chorbi3"/>
+	</bean>
+	
+	<!-- ExamClass -->
+	<bean id="examClass1" class="domain.ExamClass">
+		<property name="ticker" value="121191-2515" />
+		<property name="title" value="Medalla de oro" />
+		<property name="amount" value="300" />
+		<property name="moment" value="2017/02/01 12:30" />
+		<property name="canceled" value="false" />
+		<property name="admin" ref="admin1" />
+		<property name="event" ref="event1" />
+	</bean>
+	
+	<bean id="examClass2" class="domain.ExamClass">
+		<property name="ticker" value="121191-4352" />
+		<property name="title" value="Medalla de plata" />
+		<property name="amount" value="100" />
+		<property name="moment" value="2017/04/09 11:30" />
+		<property name="canceled" value="false" />
+		<property name="admin" ref="admin1" />
+		<property name="event" ref="event2" />
+	</bean>
+	
+	<bean id="examClass3" class="domain.ExamClass">
+		<property name="ticker" value="121191-6789" />
+		<property name="title" value="Medalla de bronce" />
+		<property name="amount" value="50" />
+		<property name="moment" value="2017/04/09 15:30" />
+		<property name="canceled" value="false" />
+		<property name="admin" ref="admin1" />
+		<property name="event" ref="event3" />
+	</bean>
+	
+	<bean id="examClass4" class="domain.ExamClass">
+		<property name="ticker" value="121192-0089" />
+		<property name="title" value="Medalla de platino" />
+		<property name="amount" value="600" />
+		<property name="moment" value="2017/11/09 15:30" />
+		<property name="canceled" value="false" />
+		<property name="admin" ref="admin1" />
+		<property name="event" ref="event4" />
+	</bean>
+</beans>

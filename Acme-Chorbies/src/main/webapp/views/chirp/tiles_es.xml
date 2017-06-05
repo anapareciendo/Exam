@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- 
+ * tiles_es.xml
+
+ * Copyright (C) 2016 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+       
+<tiles-definitions>
+
+	<definition name="chirp/list" extends="master.page">
+		<put-attribute name="title" value="Lista de Flechazos"/>
+		<put-attribute name="body" value="/views/chirp/list.jsp"/>		
+	</definition>
+	
+	<definition name="chirp/chirp" extends="master.page">
+		<put-attribute name="title" value="Flechazo"/>
+		<put-attribute name="body" value="/views/chirp/chirp.jsp"/>		
+	</definition>	
+	
+	<definition name="chirp/delete" extends="master.page">
+		<put-attribute name="title" value="Borrar Flechazo"/>
+		<put-attribute name="body" value="/views/chirp/delete.jsp"/>		
+	</definition>
+	
+	<definition name="chirp/event" extends="master.page">
+		<put-attribute name="title" value="Emitir un Flechazo Chirp"/>
+		<put-attribute name="body" value="/views/chirp/event.jsp"/>		
+	</definition>
+	
+	<definition name="chirp/broadcast" extends="master.page">
+		<put-attribute name="title" value="Event Notifications"/>
+		<put-attribute name="body" value="/views/chirp/broadcast.jsp"/>		
+	</definition>
+
+</tiles-definitions>
